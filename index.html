@@ -42,6 +42,22 @@
                 <h2>Bankroll:</h2>
                 <h2> $ <span id="bankroll"></span></h2>
                 <div class="betBox">
+          <!-- <div class="col-sm-9">
+
+            <div class="row cards ">
+              <div class="col-sm-9" id="dealerHand">
+                <element class="card back">*</element> -->
+                <!-- <a class="card rank-9 spades" href="#">
+                  <span class="rank">9</span>
+                  <span class="suit">&spades;</span>
+                </a> -->
+                <!-- <div id="dealerDeck">
+                  <ul class="deck cards">
+                    <li><element class="card back">*</element></li>
+                    <li><element class="card back">*</element></li>
+                    <li><element class="card back">*</element></li>
+                    <li><element class="card back">*</element></li>
+                  </ul>
                 </div>
               </div>
 
@@ -76,10 +92,15 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="actionButtons">
-                  <button type="button" class="hitButton btn">Hit</button>
-                  <button type="button" class="stayButton btn">Stay</button>
-                  <button type="button" class="shuffleButton btn">Shuffle Shoe</button>
-                  <button type="button" class="dealButton btn">Deal Hand</button>
+                  <div class="inPlay">
+                    <button type="button" class="hitButton btn">Hit</button>
+                    <button type="button" class="stayButton btn">Stay</button>
+                    <button type="button" class="doubleButton btn">Double</button>
+                  </div>
+                  <div class="notInPlay">
+                    <button type="button" class="shuffleButton btn">Shuffle Shoe</button>
+                    <button type="button" class="dealButton btn">Deal Hand</button>
+                  </div>
                 </div>
               </div>
             </div>

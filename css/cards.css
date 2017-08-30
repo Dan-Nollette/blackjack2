@@ -325,8 +325,12 @@
 .playingCards .card.rank-blank.clubs .suit:after{
   /*text-indent:  -4000px;*/
   /*background-color: white;*/
-  content: url(https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg);
-  content:"\2663\00A0\2663\00A0";
+}
+
+div.card.rank-blank.blank{
+  background: url("file:///Users/Guest/Desktop/blackjack2-master/img/epicodus.png");
+  background-repeat: no-repeat;
+  background-color: white;
 }
 
 /*____________ symbols in the middle (faces as images) ____________*/

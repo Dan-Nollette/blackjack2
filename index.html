@@ -12,6 +12,7 @@
   <body>
     <div class="jumbotron">
       <h1>Blackjack</h1>
+
     </div>
     <div class="container">
       <div class="playingCards simpleCards">
@@ -40,37 +41,20 @@
               </div>
               <div class="col-sm-2 well" id="betWell">
                 <h2>Bankroll:</h2>
-                <h2> $ <span id="bankroll"></span></h2>
+                <h2> $ <span id="bankRollBanner"></span></h2>
                 <div class="betBox">
-          <!-- <div class="col-sm-9">
-
-            <div class="row cards ">
-              <div class="col-sm-9" id="dealerHand">
-                <element class="card back">*</element> -->
-                <!-- <a class="card rank-9 spades" href="#">
-                  <span class="rank">9</span>
-                  <span class="suit">&spades;</span>
-                </a> -->
-                <!-- <div id="dealerDeck">
-                  <ul class="deck cards">
-                    <li><element class="card back">*</element></li>
-                    <li><element class="card back">*</element></li>
-                    <li><element class="card back">*</element></li>
-                    <li><element class="card back">*</element></li>
-                  </ul>
+                  <div class="betBox well">
+                    <p>Make a wager!</p><br>
+                    <input type="radio"  name="bet" value=25 checked> $25<br>
+                    <input type="radio"  name="bet" value=50> $50<br>
+                    <input type="radio"  name="bet" value=75> $75<br>
+                    <input type="radio"  name="bet" value=100> $100<br>
+                  </div>
                 </div>
-              </div> -->
-
+              </div>
             </div>
             <div class="row">
               <div class="col-sm-9">
-                <div class="betBox well">
-                  <p>Make a wager!</p><br>
-                  <input type="radio"  name="bet" value=25 checked> $25<br>
-                  <input type="radio"  name="bet" value=50> $50<br>
-                  <input type="radio"  name="bet" value=75> $75<br>
-                  <input type="radio"  name="bet" value=100> $100<br>
-                </div>
               </div>
             </div>
             <div class="row">
@@ -79,14 +63,14 @@
             </div>
             <div class="row cards">
               <div class="col-sm-12" id="playerHandTarget">
-                <a class="card rank-q hearts" >
+                <!-- <a class="card rank-q hearts" >
                   <span class="rank">Q</span>
                   <span class="suit">&hearts;</span>
                 </a>
                 <a class="card rank-j diams" >
                   <span class="rank">J</span>
                   <span class="suit">&diams;</span>
-                </a>
+                </a> -->
               </div>
             </div>
             <div class="row">

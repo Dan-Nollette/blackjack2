@@ -173,7 +173,7 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
     //output something about player getting blackjack, "Blackjack! you get paid 2-1!"
     } else {
     result[0] = "You have " + player.softScore +" and the dealer shows a " + dealer.cards[1].rankName + ". Click hit or stay."
-    result[1] = "<li><element class=\"card back\">*</element></li>";
+    result[1] = "<a><element class=\"card back\">*</element></a>";
     result[2] = dealer.cards[1].toHTML();
   }
   return result;
@@ -183,12 +183,12 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
 // takes card as parameter and returns html tags to output for that card
 Card.prototype.toHTML = function(){
   var returnstring = "";
-  returnstring += "<li>"
+  returnstring += "<a>"
   returnstring += "\n\t<div class=\"card rank-" + this.rank + " " + this.suit + "\">";
   returnstring += "\n\t\t<span class=\"rank\">" + (this.rank + "").toUpperCase() + "</span>";
   returnstring += "\n\t\t<span class=\"suit\">" + this.suitSymbol + "</span>";
   returnstring += "\n\t</div>";
-  returnstring += "\n</li>"
+  returnstring += "\n</a>"
   return returnstring;
 };
 

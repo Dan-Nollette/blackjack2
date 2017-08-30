@@ -114,9 +114,9 @@ ul {
 }
 
 
-/*#playerHandTarget, #dealerHand, .actionButtons, .betBox {
+#playerHandTarget, #dealerHand, .actionButtons, .betBox {
   display: none;
-}*/
+}
 
 .greyedOut {
   background-color: rgba(255,255,255, .25 );

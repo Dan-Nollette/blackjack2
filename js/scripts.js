@@ -55,9 +55,6 @@ var hitOrStay = function(hand){
 
 var evaluateRound = function(dealerHand, playerHand) {
   endHand();
-  // handInPLay = false;
-  // $(".notInPlay button").removeClass("greyedOut");
-  // $(".inPlay button").addClass("greyedOut");
   var dealerFinalScore = dealerHand.finalScore();
   var playerFinalScore = playerHand.finalScore();
   if (dealerHand.isBust()) {
@@ -151,9 +148,6 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
   player.wager = currentWager;
   if(dealer.softScore === 21) {
     endHand();
-    // handInPLay = false;
-    // $(".notInPlay button").removeClass("greyedOut");
-    // $(".inPlay button").addClass("greyedOut");
     dealerHandShow();
     if (player.softScore === 21) {
       result[0] = "You and the dealer both have blackjack. It's a tie.";
@@ -164,9 +158,6 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
   } else if (player.softScore === 21) {
     dealerHandShow();
     endHand();
-    // handInPLay = false;
-    // $(".notInPlay button").removeClass("greyedOut");
-    // $(".inPlay button").addClass("greyedOut");
     playerBankRoll += (playerHand.wager * 1.5);
     result[0] = "You have blackjack!, congratulations, you get paid 3-2 on your bet."
     } else {
@@ -179,20 +170,15 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
 
 // takes card as parameter and returns html tags to output for that card
 Card.prototype.toHTML = function(){
-  var returnstring = "";
-  returnstring += "<a>"
-  returnstring += "\n\t<div class=\"card rank-" + this.rank + " " + this.suit + "\">";
-  returnstring += "\n\t\t<span class=\"rank\">" + (this.rank + "").toUpperCase() + "</span>";
-  returnstring += "\n\t\t<span class=\"suit\">" + this.suitSymbol + "</span>";
-  returnstring += "\n\t</div>";
-  returnstring += "\n</a>"
-  return returnstring;
+  return "<a><div class=\"card rank-" + this.rank + " " + this.suit + "\"><span class=\"rank\">" + (this.rank + "").toUpperCase() + "</span><span class=\"suit\">" + this.suitSymbol + "</span></div></a>";
 };
 
 //FRONTEND SCRIPTS (user interface logic)
 var endHand = function (){
   handInPLay = false;
+  $(".notInPlay button").prop("disabled", false);
   $(".notInPlay button").removeClass("greyedOut");
+  $(".inPlay button").prop("disabled", true);
   $(".inPlay button").addClass("greyedOut");
 };
 
@@ -208,7 +194,9 @@ $(document).ready(function(){
     if(gameInitialized) {
       if(!handInPLay){
         handInPLay = true;
+        $(".notInPlay button").prop("disabled", true);
         $(".notInPlay button").addClass("greyedOut");
+        $(".inPlay button").prop("disabled", false);
         $(".inPlay button").removeClass("greyedOut");
         $("#playerHandTarget").text("");
         $("#dealerHand").text("");
@@ -216,8 +204,8 @@ $(document).ready(function(){
         var dealResult = currentShoe.dealRound(playerHand, dealerHand, currentWager);
         $("#dealerHand").append(dealResult[1]);
         $("#dealerHand").append(dealResult[2]);
-        $("#playerHandTarget").append(playerHand.cards[0].toHTML());
-        $("#playerHandTarget").append(playerHand.cards[1].toHTML());
+        $("#playerHandTarget").append(playerHand.cards[0].toHTML() + playerHand.cards[1].toHTML());
+        //$("#playerHandTarget").append(playerHand.cards[1].toHTML());
         $("#actionOutput").text(dealResult[0]);// "You have " + playerHand.softScore +" and the dealer shows a " + dealerHand.cards[0].rank + ". click hit or stay.");
       } else {
         alert("There is currently a hand in play. You can't deal another until this one is over.");
@@ -240,9 +228,6 @@ $(document).ready(function(){
         playerBankRoll -= playerHand.wager;
         $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
         endHand();
-        // handInPLay = false;
-        // $(".notInPlay button").removeClass("greyedOut");
-        // $(".inPlay button").addClass("greyedOut");
       } else {
         $("#actionOutput").append(". Click hit or stay");
       }
@@ -269,14 +254,11 @@ $(document).ready(function(){
     if(handInPLay){
       if(playerHand.cards.length === 2){
         endHand();
-        // handInPLay = false;
-        // $(".notInPlay button").removeClass("greyedOut");
-        // $(".inPlay button").addClass("greyedOut");
         playerHand.wager *= 2;
         $("#actionOutput").text("You doubled on " + playerHand.softScore + ", for a total wager of $" + playerHand.wager);
         currentShoe.dealCard(playerHand);
         $("#playerHandTarget").append(playerHand.cards[playerHand.cards.length - 1].toHTML());
-        $("dealerHand").show();
+        dealerHandShow();
         if(playerHand.isBust()){
           playerBankRoll -= playerHand.wager;
           $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
@@ -299,9 +281,6 @@ $(document).ready(function(){
     $("#playerHandTarget").text("");
     $("#dealerHand").text("");
     endHand();
-    // handInPLay = false;
-    // $(".notInPlay button").removeClass("greyedOut");
-    // $(".inPlay button").addClass("greyedOut");
     gameInitialized = true;
     currentShoe = new Shoe(1);
     playerHand =  new IndividualHand();

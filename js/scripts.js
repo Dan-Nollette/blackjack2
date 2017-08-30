@@ -300,7 +300,9 @@ $(document).ready(function(){
   //scripts for when the player clicks the 'New Game' button
   $(".playButton").click(function(event){
     event.preventDefault();
-    alert("play")
+    $(".actionButtons").show();
+    $("#dealerHand").show();
+    $("#playerHandTarget").show();    
     $("#playerHandTarget").text("");
     $("#dealerHand").text("");
     handInPLay = false;

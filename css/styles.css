@@ -92,8 +92,8 @@ ul {
   float: left;
 }
 
-#playerHand, #dealerHand, .actionButtons, .betBox {
-  /*display: none;*/
+#playerHandTarget, #dealerHand, .actionButtons, .betBox {
+  display: none;
 }
 
 #actionOutput {

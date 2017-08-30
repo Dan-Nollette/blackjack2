@@ -58,14 +58,19 @@ var evaluateRound = function(dealerHand, playerHand) {
   if (dealerHand.isBust()) {
     playerBankRoll += playerHand.wager;
     $("#actionOutput").append(". Dealer is bust with a score of " + dealerHand.hardScore + ". You win! Your bankroll is now $" + playerBankRoll);
+    $("#bankRollBanner").text(playerBankRoll);
   } else if (playerFinalScore > dealerFinalScore){
     playerBankRoll += playerHand.wager;
     $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Congrats, you win. Your bankroll is now $" + playerBankRoll);
+    $("#bankRollBanner").text(playerBankRoll);
   } else if (playerFinalScore === dealerFinalScore) {
     $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". It's a tie. Your bankroll is now $" + playerBankRoll);
+    $("#bankRollBanner").text(playerBankRoll);
   } else if (playerFinalScore < dealerFinalScore) {
     playerBankRoll -= playerHand.wager;
-    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Sorry, you loose. Your bankroll is now $" + playerBankRoll);
+    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Sorry, you lose. Your bankroll is now $" + playerBankRoll);
+    $("#bankRollBanner").text(playerBankRoll);
+
   }
 }
 
@@ -252,12 +257,12 @@ $(document).ready(function(){
   //scripts for when the player clicks the 'New Game' button
   $(".playButton").click(function(event){
     event.preventDefault();
-    // $(".actionButtons").show();
-    // $("#dealerHand").show();
-    // $("#playerHandTarget").show();
-    // $("#playerHandTarget").text("");
-    // $("#dealerHand").text("");
-    // $(".playButton").hide();
+    $(".actionButtons").show();
+    $("#dealerHand").show();
+    $("#playerHandTarget").show();
+    $("#playerHandTarget").text("");
+    $("#dealerHand").text("");
+    $(".playButton").hide();
     $(".actionButtons, #dealerHand, #playerHandTarget, .betBox").show();
     $("#playerHandTarget").text("");
     $("#dealerHand").text("");

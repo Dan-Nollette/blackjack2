@@ -70,7 +70,6 @@ var evaluateRound = function(dealerHand, playerHand) {
     playerBankRoll -= playerHand.wager;
     $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Sorry, you lose. Your bankroll is now $" + playerBankRoll);
     $("#bankRollBanner").text(playerBankRoll);
-
   }
 }
 
@@ -150,7 +149,6 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
   this.dealHand(dealer);
   player.wager = currentWager;
   if(dealer.softScore === 21) {
-    endHand();
     dealerHandShow();
     if (player.softScore === 21) {
       result[0] = "You and the dealer both have blackjack. It's a tie.";
@@ -158,10 +156,11 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
       playerBankRoll -= playerHand.wager;
       result[0] = "The dealer has Blackjack. Sorry, you lose.";
     }
+    endHand();
   } else if (player.softScore === 21) {
     dealerHandShow();
-    endHand();
     playerBankRoll += (playerHand.wager * 1.5);
+    endHand();
     result[0] = "You have blackjack!, congratulations, you get paid 3-2 on your bet."
     } else {
     result[0] = "You have " + player.softScore +" and the dealer shows a " + dealer.cards[1].rankName + ". Click hit or stay."
@@ -181,6 +180,7 @@ Card.prototype.toHTML = function(){
 
 //FRONTEND SCRIPTS (user interface logic)
 var endHand = function (){
+  $("#bankRollBanner").text(playerBankRoll);
   $(".notInPlay button").prop("disabled", false);
   $(".notInPlay button").removeClass("greyedOut");
   $(".inPlay button").prop("disabled", true);

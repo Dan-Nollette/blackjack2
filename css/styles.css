@@ -93,7 +93,11 @@ ul {
 }
 
 #playerHand, #dealerHand, .actionButtons, .betBox {
-  display: none;
+  /*display: none;*/
+}
+
+#actionOutput {
+  background-color: white;
 }
 
 /*font-family: 'Ubuntu', sans-serif;

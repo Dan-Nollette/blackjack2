@@ -205,6 +205,8 @@ $(document).ready(function(){
   $(".hitButton").click(function(event){
     event.preventDefault();
     currentShoe.dealCard(playerHand);
+    $(".doubleButton").prop("disabled", true);
+    $(".doubleButton").addClass("greyedOut");
     $("#playerHandTarget").append(playerHand.cards[playerHand.cards.length -1].toHTML());
     $("#actionOutput").text("You took a hit. You now have " + playerHand.softScore);
     //output dealt card, indicate score.
@@ -229,23 +231,19 @@ $(document).ready(function(){
   //scripts for when the player clicks the 'double' button
   $(".doubleButton").click(function(event){
     event.preventDefault();
-    if(playerHand.cards.length === 2){
-      endHand();
-      playerHand.wager *= 2;
-      $("#actionOutput").text("You doubled on " + playerHand.softScore + ", for a total wager of $" + playerHand.wager);
-      currentShoe.dealCard(playerHand);
-      $("#playerHandTarget").append(playerHand.cards[playerHand.cards.length - 1].toHTML());
-      dealerHandShow();
-      if(playerHand.isBust()){
-        playerBankRoll -= playerHand.wager;
-        $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
-      } else {
-      hitOrStay(dealerHand);
-      evaluateRound(dealerHand, playerHand);
-      }
+    endHand();
+    playerHand.wager *= 2;
+    $("#actionOutput").text("You doubled on " + playerHand.softScore + ", for a total wager of $" + playerHand.wager);
+    currentShoe.dealCard(playerHand);
+    $("#playerHandTarget").append(playerHand.cards[playerHand.cards.length - 1].toHTML());
+    dealerHandShow();
+    if(playerHand.isBust()){
+      playerBankRoll -= playerHand.wager;
+      $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
     } else {
-      alert("You can only double on the first two cards.");
-    }
+    hitOrStay(dealerHand);
+    evaluateRound(dealerHand, playerHand);
+      }
   });
 
   //scripts for when the player clicks the 'New Game' button

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Russo+One|Ubuntu');
+
+/*.container{
+  display:flex;
+}*/
+
+.cards {
+  text-align: center;
+}
+
+h1  {
+  text-align: center;
+  font-size: 70px;
+  font-family: 'Russo One', sans-serif;
+}
+
+.btn, h2, ul, p {
+  font-family: 'Russo One', sans-serif;
+}
+
+.jumbotron{
+    background-color: #900;
+    color: #fffe00;
+}
+
+#showCard {
+  margin-left: -2.5em;
+}
+
+.hitButton {
+  background-color: red;
+}
+
+.stayButton {
+  color: white;
+  background-color: blue;
+}
+
+.betButton {
+  background-color: yellow;
+}
+
+.shuffleButton {
+  color: white;
+  background-color: black;
+}
+
+.playButton {
+  font-size: 50px;
+  color: red;
+  background-color: transparent;
+  margin-left: 285px;
+  margin-top: -200px;
+}
+
+/*.startGame, .btn-block {
+  text-align: center;
+  background-color: transparent;
+  color: red;
+  padding: 18px 28px;
+  font-size: 50px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: -25px;
+}*/
+
+
+.betBox, p{
+  float: right;
+  color: black;
+}
+
+body {
+  background-image: url(https://wizardofodds.com/play/blackjack-v2/table.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background-attachment: fixed;*/
+}
+
+#betWell {
+  float: right;
+}
+
+.well {
+  /*margin-left: -50px;*/
+  font-size: 11px;
+  opacity: 0.75;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.actionButtons {
+  text-align: center;
+  margin-top: 100px;
+  margin-right: 200px;
+}
+
+.card.back {
+  background-size: 100%;
+}
+.card.backNew{
+  background-size: 100%;
+}
+
+#dealerDeck {
+  float: left;
+}
+
+#playerHandTarget, #dealerHand, .actionButtons {
+  display: none;
+
+}
+#playerHandTarget {
+  margin-left: -111px;
+}
+#actionOutput {
+  text-align: center;
+  font-size: 20px;
+  color: yellow;
+  font-family: 'Russo One', sans-serif;
+  margin-right: 250px;
+}
+
+/*font-family: 'Ubuntu', sans-serif;
+font-family: 'Roboto', sans-serif;*/

@@ -100,5 +100,10 @@ ul {
   background-color: white;
 }
 
+.greyedOut {
+  background-color: rgba(255,255,255, .25 );
+  color: grey;
+}
+
 /*font-family: 'Ubuntu', sans-serif;
 font-family: 'Roboto', sans-serif;*/

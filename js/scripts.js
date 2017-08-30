@@ -5,6 +5,8 @@ gameInitialized = false;
 var ranks = [["2", 2, "deuce"], ["3", 3, "three"], ["4", 4, "four"], ["5", 5, "five"], ["6", 6, "six"], ["7", 7, "seven"], ["8", 8, "eight"], ["9", 9, "nine"], ["10", 10, "ten"], ["j", 10, "jack"], ["q", 10, "queen"], ["k", 10, "king"], ["a", 1, "ace"]];
   //Tracks whether there is currently a hand being played
 var handInPLay = false;
+$(".notInPlay button").removeClass("greyedOut");
+$(".inPlay button").addClass("greyedOut");
   //The suits of cards in a deck.
 var suits = [["spades", "♠"], ["hearts", "♥"], ["clubs", "♣"], ["diams", "♦"]];
   // BankRoll is the amount of money the player has available to wager.
@@ -56,6 +58,8 @@ var hitOrStay = function(hand){
 
 var evaluateRound = function(dealerHand, playerHand) {
   handInPLay = false;
+  $(".notInPlay button").removeClass("greyedOut");
+  $(".inPlay button").addClass("greyedOut");
   var dealerFinalScore = dealerHand.finalScore();
   var playerFinalScore = playerHand.finalScore();
   if (dealerHand.isBust()) {
@@ -154,6 +158,8 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
   player.wager = currentWager;
   if(dealer.softScore === 21) {
     handInPLay = false;
+    $(".notInPlay button").removeClass("greyedOut");
+    $(".inPlay button").addClass("greyedOut");
     dealerHandShow();
     if (player.softScore === 21) {
 
@@ -168,6 +174,8 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
   } else if (player.softScore === 21) {
     dealerHandShow();
     handInPLay = false;
+    $(".notInPlay button").removeClass("greyedOut");
+    $(".inPlay button").addClass("greyedOut");
     playerBankRoll += (playerHand.wager * 1.5);
     result[0] = "You have blackjack!, congratulations, you get paid 3-2 on your bet."
     //output something about player getting blackjack, "Blackjack! you get paid 2-1!"
@@ -206,6 +214,8 @@ $(document).ready(function(){
     if(gameInitialized) {
       if(!handInPLay){
         handInPLay = true;
+        $(".notInPlay button").addClass("greyedOut");
+        $(".inPlay button").removeClass("greyedOut");
         $("#playerHandTarget").text("");
         $("#dealerHand").text("");
         var currentWager = parseInt($('input[name="bet"]:checked').val());
@@ -236,6 +246,8 @@ $(document).ready(function(){
         playerBankRoll -= playerHand.wager;
         $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
         handInPLay = false;
+        $(".notInPlay button").removeClass("greyedOut");
+        $(".inPlay button").addClass("greyedOut");
         //player Bust output
         //prompt beginning of new hand.
       } else {
@@ -266,11 +278,13 @@ $(document).ready(function(){
     if(handInPLay){
       if(playerHand.cards.length === 2){
         handInPLay = false;
+        $(".notInPlay button").removeClass("greyedOut");
+        $(".inPlay button").addClass("greyedOut");
         playerHand.wager *= 2;
         $("#actionOutput").text("You doubled on " + playerHand.softScore + ", for a total wager of $" + playerHand.wager);
         currentShoe.dealCard(playerHand);
         $("#playerHandTarget").append(playerHand.cards[playerHand.cards.length - 1].toHTML());
-        dealerHandShow();
+        $("dealerHand").show();
         if(playerHand.isBust()){
           playerBankRoll -= playerHand.wager;
           $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
@@ -302,10 +316,12 @@ $(document).ready(function(){
     event.preventDefault();
     $(".actionButtons").show();
     $("#dealerHand").show();
-    $("#playerHandTarget").show();    
+    $("#playerHandTarget").show();
     $("#playerHandTarget").text("");
     $("#dealerHand").text("");
     handInPLay = false;
+    $(".notInPlay button").removeClass("greyedOut");
+    $(".inPlay button").addClass("greyedOut");
     gameInitialized = true;
     currentShoe = new Shoe(1);
     playerHand =  new IndividualHand();

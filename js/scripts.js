@@ -163,7 +163,7 @@ Shoe.prototype.dealRound = function(player, dealer, currentWager){
     endHand();
     result[0] = "You have blackjack!, congratulations, you get paid 3-2 on your bet."
     } else {
-    result[0] = "You have " + player.softScore +" and the dealer shows a " + dealer.cards[1].rankName + ". Click hit or stay."
+    result[0] = "You have " + player.softScore +" and the dealer shows a " + dealer.cards[1].rankName + ". Click hit or stand."
     result[1] = "<div class=\"card rank-blank blank\">" +
                   "<span class='rank'>&nbsp;</span>" +
                   "<span class='suit'>&nbsp;</span>"+
@@ -224,7 +224,7 @@ $(document).ready(function(){
       $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
       endHand();
     } else {
-      $("#actionOutput").append(". Click hit or stay");
+      $("#actionOutput").append(". Click hit or stand");
     }
   });
 
@@ -232,7 +232,7 @@ $(document).ready(function(){
   $(".stayButton").click(function(event){
     event.preventDefault();
     dealerHandShow();
-    $("#actionOutput").text("You stay on " + playerHand.softScore);
+    $("#actionOutput").text("You stand on " + playerHand.softScore);
     hitOrStay(dealerHand);
     evaluateRound(dealerHand, playerHand,);
   });

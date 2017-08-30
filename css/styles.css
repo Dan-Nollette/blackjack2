@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Russo+One|Ubuntu');
 
-/*.container{
-  display:flex;
-}*/
-
 .cards {
   text-align: center;
 }
@@ -19,8 +15,8 @@ h1  {
 }
 
 .jumbotron{
-    background-color: #900;
-    color: #fffe00;
+  background-color: #900;
+  color: #fffe00;
 }
 
 #showCard {
@@ -52,18 +48,6 @@ h1  {
   margin-left: 285px;
   margin-top: -200px;
 }
-
-/*.startGame, .btn-block {
-  text-align: center;
-  background-color: transparent;
-  color: red;
-  padding: 18px 28px;
-  font-size: 50px;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: -25px;
-}*/
-
 
 .betBox, p{
   float: right;
@@ -129,5 +113,6 @@ ul {
   margin-right: 250px;
 }
 
-/*font-family: 'Ubuntu', sans-serif;
-font-family: 'Roboto', sans-serif;*/
+#playerHandTarget, #dealerHand, .actionButtons, .betBox {
+  display: none;
+}

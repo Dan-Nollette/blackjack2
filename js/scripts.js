@@ -57,19 +57,19 @@ var evaluateRound = function(dealerHand, playerHand) {
   var playerFinalScore = playerHand.finalScore();
   if (dealerHand.isBust()) {
     playerBankRoll += playerHand.wager;
-    $("#actionOutput").append(". Dealer is bust with a score of " + dealerHand.hardScore + ". You win! Your bankroll is now $" + playerBankRoll);
-    $("#bankRollBanner").text(playerBankRoll);
+    $("#actionOutput").append(". Dealer is bust with a score of " + dealerHand.hardScore + ". You win! Your bankroll is now $" + playerBankRoll.toFixed(2));
+    $("#bankRollBanner").text(playerBankRoll.toFixed(2));
   } else if (playerFinalScore > dealerFinalScore){
     playerBankRoll += playerHand.wager;
-    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Congrats, you win. Your bankroll is now $" + playerBankRoll);
-    $("#bankRollBanner").text(playerBankRoll);
+    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Congrats, you win. Your bankroll is now $" + playerBankRoll.toFixed(2));
+    $("#bankRollBanner").text(playerBankRoll.toFixed(2));
   } else if (playerFinalScore === dealerFinalScore) {
-    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". It's a tie. Your bankroll is now $" + playerBankRoll);
-    $("#bankRollBanner").text(playerBankRoll);
+    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". It's a tie. Your bankroll is now $" + playerBankRoll.toFixed(2));
+    $("#bankRollBanner").text(playerBankRoll.toFixed(2));
   } else if (playerFinalScore < dealerFinalScore) {
     playerBankRoll -= playerHand.wager;
-    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Sorry, you lose. Your bankroll is now $" + playerBankRoll);
-    $("#bankRollBanner").text(playerBankRoll);
+    $("#actionOutput").append(". You have " + playerFinalScore + " and the dealer has " + dealerFinalScore + ". Sorry, you lose. Your bankroll is now $" + playerBankRoll.toFixed(2));
+    $("#bankRollBanner").text(playerBankRoll.toFixed(2));
   }
 }
 
@@ -180,7 +180,7 @@ Card.prototype.toHTML = function(){
 
 //FRONTEND SCRIPTS (user interface logic)
 var endHand = function (){
-  $("#bankRollBanner").text(playerBankRoll);
+  $("#bankRollBanner").text(playerBankRoll.toFixed(2));
   $(".notInPlay button").prop("disabled", false);
   $(".notInPlay button").removeClass("greyedOut");
   $(".inPlay button").prop("disabled", true);
@@ -221,7 +221,7 @@ $(document).ready(function(){
     if (playerHand.isBust()){
       playerBankRoll -= playerHand.wager;
       dealerHandShow();
-      $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
+      $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll.toFixed(2));
       endHand();
     } else {
       $("#actionOutput").append(". Click hit or stand");
@@ -247,7 +247,7 @@ $(document).ready(function(){
     dealerHandShow();
     if(playerHand.isBust()){
       playerBankRoll -= playerHand.wager;
-      $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll);
+      $("#actionOutput").append(". Sorry, you busted out. Your bankroll is now $" + playerBankRoll.toFixed(2));
     } else {
     hitOrStay(dealerHand);
     evaluateRound(dealerHand, playerHand);

@@ -257,6 +257,7 @@ $(document).ready(function(){
   //scripts for when the player clicks the 'New Game' button
   $(".playButton").click(function(event){
     event.preventDefault();
+    $("#dealerHand, #playerHandTarget, #actionOutput").slideDown("slow");
     $("#dealerHand, #playerHandTarget, #actionOutput").text("");
     $(".playButton").hide();
     $("#betWell, #rulesDiv").fadeIn(500);

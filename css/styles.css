@@ -81,6 +81,10 @@ body {
 #betWell {
   float: right;
 }
+#emptyBox{
+  width:1px;
+  height: 2em;
+}
 
 .well {
   /*margin-left: -50px;*/

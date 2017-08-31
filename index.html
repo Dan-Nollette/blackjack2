@@ -28,11 +28,7 @@
               <li>If you are dealt 21 from the start (Ace & 10), you got a blackjack.</li>
               <li><strong>Dealer will hit until his/her cards total 17.</strong></li>
               <li>Doubling is like a hit, only the bet is doubled and you only get one more card.</li>
-              <li><strong>Split can be done when you have two of the same card - the pair is split into two hands.</strong></li>
-              <li>Splitting also doubles the bet, because each new hand is worth the original bet.</li>
-              <li><strong>You can only double/split on the first move, or first move of a hand created by a split.</strong></li>
-              <li>You cannot play on two aces after they are split.</li>
-              <li><strong>You can double on a hand resulting from a split, tripling or quadrupling you bet.</strong></li>
+
             </ul>
           </div>
           <div class="col-sm-10">
@@ -43,22 +39,14 @@
                 <h2>Bankroll:</h2>
                 <h2>$<span id="bankRollBanner"></span></h2>
                 <div class="betBox">
-                  <div class="betBox well">
-                    <p>Make a wager!</p><br>
-                    <input type="radio"  name="bet" value=25 checked> $25<br>
-                    <input type="radio"  name="bet" value=50> $50<br>
-                    <input type="radio"  name="bet" value=75> $75<br>
-                    <input type="radio"  name="bet" value=100> $100<br>
+                  <div class=" well">
+                    <p id="makeWager">Make a wager!</p><br>
+                    <input type="radio"  name="bet" value=25 checked><label>&nbsp;$25</label><br>
+                    <input type="radio"  name="bet" value=50><label>&nbsp;$50</label><br>
+                    <input type="radio"  name="bet" value=75><label>&nbsp;$75</label><br>
+                    <input type="radio"  name="bet" value=100><label>&nbsp;$100</label> <br>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-9">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
               </div>
             </div>
             <div class="row cards">
@@ -67,6 +55,11 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
+                <p id="actionOutput"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 actionBox">
                 <div class="actionButtons">
                   <div class="inPlay">
                     <button type="button" class="hitButton btn">Hit</button>
@@ -80,11 +73,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <p id="actionOutput"></p>
-              </div>
-            </div>
+            <br>
             <div class="col-md-3 text-center">
               <button type="button" class="playButton btn">Play!</button>
             </div>

@@ -257,22 +257,17 @@ $(document).ready(function(){
   //scripts for when the player clicks the 'New Game' button
   $(".playButton").click(function(event){
     event.preventDefault();
-    $(".actionButtons").show();
-    $("#dealerHand").show();
-    $("#playerHandTarget").show();
-    $("#playerHandTarget").text("");
-    $("#dealerHand").text("");
+    $("#dealerHand, #playerHandTarget, #actionOutput").text("");
     $(".playButton").hide();
-    $(".actionButtons, #dealerHand, #playerHandTarget, .betBox").show();
-    $("#playerHandTarget").text("");
-    $("#dealerHand").text("");
+    $("#betWell, #rulesDiv").fadeIn(500);
+    $(".actionButtons, #dealerHand, #playerHandTarget").slideDown(500);
+
     endHand();
     gameInitialized = true;
     currentShoe = new Shoe(1);
     playerHand =  new IndividualHand();
     dealerHand = new IndividualHand();
     playerBankRoll = 1000;
-    $("#actionOutput").text("");
     $("#actionOutput").append("The shoe is shuffled and a new game is ready. <strong>PLACE YOUR BET!</strong>");
   });
   //scripts for when the player clicks the 'Shuffle' button. Note, this is only an option when the player is not in the middle of a hand.

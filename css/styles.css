@@ -118,7 +118,7 @@ ul {
 }
 
 
-#playerHandTarget, #dealerHand, .actionButtons, .betBox {
+#playerHandTarget, #dealerHand, .actionButtons, #betWell, #rulesDiv {
   display: none;
 }
 

@@ -130,6 +130,7 @@ ul {
   font-family: 'Russo One', sans-serif;
   margin-right: 250px;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  height: 50px;
 }
 div .actionBox{
   height: 50px;

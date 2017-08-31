@@ -14,6 +14,10 @@ h1  {
   font-family: 'Russo One', sans-serif;
 }
 
+h2 {
+  font-size: 20px;
+}
+
 .jumbotron{
   background-color: #900;
   color: #fffe00;
